@@ -49,4 +49,6 @@ en:
   full_name: "Full name"
   password: "Password"
   password_c: "Password confirmation"
+  posted_by: "Posted by"
+  posted_on: "on"
 

@@ -63,16 +63,23 @@
           Product Reviews
         </div>
         <div class="card-body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-          <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-          <hr>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-          <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-          <hr>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-          <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-          <hr>
-          <a href="#" class="btn btn-success">Leave a Review</a>
+          <% @product.comments.each do |comment| %>
+            <p><%= comment.body %></p>
+            <small class="text-muted"><%= t('posted_by') + " " + comment.user.email + " " + t('posted_on')%> <%= comment.commentDate %></small>
+            <hr>
+          <% end %>
+          <% if user_signed_in? %>
+            <h3>Add Comment</h3>
+            <%= form_for([@product,@product.comments.build]) do |f| %>
+              <p>
+              <%= f.label :body %>
+              <%= f.text_field(:body, class: 'form-control') %>
+              </p>
+              <p>
+                <%= f.submit(class: 'btn btn-primary') %>
+              </p>
+            <% end %>
+          <% end %>
         </div>
       </div>
       <!-- /.card -->

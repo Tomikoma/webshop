@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :products, only: [:show, :index]
+  resources :products, only: [:show, :index] do
+    resources :comments
+  end
   get 'main/index'
 
   root 'main#index'
