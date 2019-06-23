@@ -1,0 +1,86 @@
+<p id="notice"><%= notice %></p>
+<br>
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-lg-3">
+      <h1 class="my-4"><%= t('shop_name') %></h1>
+      <div class="list-group">
+        <% if @product.productType == "tv" %>
+          <a href="#" class="list-group-item active"><%= t('tv') %></a>
+        <% else %>
+          <a href="#" class="list-group-item"><%= t('tv') %></a>
+        <% end %>
+        <% if @product.productType == "phone" %>
+          <a href="#" class="list-group-item active"><%= t('phone') %></a>
+        <% else %>
+          <a href="#" class="list-group-item"><%= t('phone') %></a>
+        <% end %>
+        <% if @product.productType == "notebook" %>
+          <a href="#" class="list-group-item active"><%= t('notebook') %></a>
+        <% else %>
+          <a href="#" class="list-group-item"><%= t('notebook') %></a>
+        <% end %>
+      </div>
+    </div>
+    <!-- /.col-lg-3 -->
+
+    <div class="col-lg-9">
+
+      <div class="card mt-4">
+        <img class="card-img-top img-fluid" src="<%= @product.imgURL %>" alt="">
+        <div class="card-body">
+          <h3 class="card-title"><%= @product.productName %></h3>
+          <h4><%= @product.price %> <%= t('huf') %></h4>
+          <p>
+            <strong><%= t('product_number') %>:</strong>
+            <%= @product.productNumber %>
+          </p>
+
+          <p>
+            <strong><%= t('color') %>:</strong>
+            <%= @product.productColor %>
+          </p>
+
+          <p>
+            <strong><%= t('release_date') %>:</strong>
+            <%= @product.releaseDate %>
+          </p>
+
+          <p>
+            <strong><%= t('manufacturer') %>:</strong>
+            <%= @product.manufacturer %>
+          </p>
+          <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+          4.0 stars
+        </div>
+      </div>
+      <!-- /.card -->
+
+      <div class="card card-outline-secondary my-4">
+        <div class="card-header">
+          Product Reviews
+        </div>
+        <div class="card-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+          <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+          <hr>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+          <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+          <hr>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+          <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+          <hr>
+          <a href="#" class="btn btn-success">Leave a Review</a>
+        </div>
+      </div>
+      <!-- /.card -->
+
+    </div>
+    <!-- /.col-lg-9 -->
+
+  </div>
+
+</div>
+<!-- /.container -->
