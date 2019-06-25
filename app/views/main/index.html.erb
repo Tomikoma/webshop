@@ -57,7 +57,7 @@
               <p class="card-text"><%= t('manufacturer') %>: <%= product.manufacturer %></p>
             </div>
             <div class="card-footer">
-              <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              <small class="text-muted"><%= t('rating') + ": " + product.rates.average("rating").to_s + " (" + product.rates.count().to_s + ")"   %></small>
             </div>
           </div>
         </div>

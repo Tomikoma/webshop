@@ -51,4 +51,9 @@ en:
   password_c: "Password confirmation"
   posted_by: "Posted by"
   posted_on: "on"
+  rating: "Rating"
+  cart: "Cart"
+  english: "English"
+  hungarian: "Hungarian"
+  comment: "Comment"
 

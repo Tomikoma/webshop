@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_23_140923) do
+ActiveRecord::Schema.define(version: 2019_06_23_173503) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 2019_06_23_140923) do
     t.string "imgURL"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "rates", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "product_id"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_rates_on_product_id"
+    t.index ["user_id"], name: "index_rates_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

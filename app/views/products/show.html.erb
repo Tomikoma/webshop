@@ -52,11 +52,21 @@
             <strong><%= t('manufacturer') %>:</strong>
             <%= @product.manufacturer %>
           </p>
-          <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-          4.0 stars
+          <p><%= t('rating') + ": " + @product.rates.average("rating").to_s + " (" + @product.rates.count().to_s + ")"   %></p>
+          <%= form_for([@product,@product.rates.build]) do |f| %>
+            <p>
+              <%= f.label :rating %>
+              <%= f.select(:rating, options_for_select([[1,1],[2,2],[3,3],[4,4],[5,5]],3), class: "form-control")%>
+            </p>
+            <p>
+              <%= f.submit(class: "btn btn-primary") %>
+            </p>
+          <% end %>
+
         </div>
       </div>
       <!-- /.card -->
+
 
       <div class="card card-outline-secondary my-4">
         <div class="card-header">
@@ -69,8 +79,9 @@
             <hr>
           <% end %>
           <% if user_signed_in? %>
-            <h3>Add Comment</h3>
+            <h3> <%= t('comment') %></h3>
             <%= form_for([@product,@product.comments.build]) do |f| %>
+              <%= @product.comments.as_json %>
               <p>
               <%= f.label :body %>
               <%= f.text_field(:body, class: 'form-control') %>

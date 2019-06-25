@@ -31,4 +31,51 @@
 
 hu:
   branding: "Ruby on Rails projekt"
-  shop_name: "Project Internetes Áruház"
+  shop_name: "Projekt Internetes Áruház"
+  home: "Főoldal"
+  login: "Bejelentkezés"
+  signup: "Regisztráció"
+  logout: "Kijelentkezés"
+  tv: "TV"
+  phone: "Telefon"
+  notebook: "Notebook"
+  manufacturer: "Gyártó"
+  huf: "Ft"
+  price: "Ár"
+  product_number: "Termékszám"
+  color: "Szín"
+  release_date: "Megjelenés"
+  email_address: "Email cím"
+  full_name: "Teljes név"
+  password: "Jelszó"
+  password_c: "Jelszó megerősítése"
+  posted_by: "Írta"
+  posted_on: "Dátum:"
+  rating: "Értékelés"
+  cart: "Kosár"
+  english: "Angol"
+  hungarian: "Magyar"
+  comment: "Hozzászólás"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "mező nem lehet üres."
+              taken: "cím már foglalt."
+            password:
+              blank: "mező nem lehet üres."
+              too_short: "nem elég hosszú (legalább 6 karakter)."
+            password_confirmation:
+              confirmation: "és a jelszó nem egyezik."
+    models:
+      user:
+        one: "Felhasználó"
+        other: "Felhasználók"
+    attributes:
+      user:
+        password:
+          one: "Jelszó"
+          other: "Jelszavak"
+        password_confirmation: "Megerősítő jelszó"

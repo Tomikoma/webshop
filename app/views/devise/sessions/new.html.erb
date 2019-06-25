@@ -1,5 +1,5 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
+  <%= content_tag(:div, flash[:alert], :id => "flash_alert", :class => "alert alert-danger") if flash[:alert] %>
   <div class="card bg-light">
     <article class="card-body mx-auto" style="max-width: 400px;">
       <div class="form-group input-group">
@@ -20,5 +20,3 @@
     </article>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>

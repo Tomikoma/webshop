@@ -22,10 +22,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+            <% if I18n.locale == :hu %>
+              <li class="nav-item">
+                <span class="nav-link"> <%= link_to t('english'), locale: :en %> </span>
+              </li>
+            <% elsif I18n.locale == :en %>
+              <li class="nav-item">
+                <span class="nav-link"> <%= link_to t('hungarian'), locale: :hu %> </span>
+              </li>
+            <% end %>
+
+
             <li class="<%= root_url == request.original_url ? "nav-item active" : "nav-item" %>">
               <%= link_to t("home"), root_path, class: "nav-link" %>
             </li>
             <% if user_signed_in? %>
+              <%= link_to t('cart'),  :class => "nav-link"%>
               <%= link_to t('logout'), destroy_user_session_path, method: :delete, :class => 'nav-link'  %>
             <% else %>
               <li class="<%= request.original_url.split('/').last == "sign_up" ? "nav-item active" : "nav-item" %>">

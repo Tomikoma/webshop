@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
-  resources :products, only: [:show, :index] do
-    resources :comments
-  end
-  get 'main/index'
+  scope "(:locale)", locale: /en|hu/ do
+    devise_for :users
+    resources :products, only: [:show, :index] do
+      resources :comments
+      resources :rates
+    end
+    get 'main/index'
 
-  root 'main#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+    root 'main#index'
+    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  end
 end
