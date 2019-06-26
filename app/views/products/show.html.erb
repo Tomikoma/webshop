@@ -53,13 +53,20 @@
             <%= @product.manufacturer %>
           </p>
           <p><%= t('rating') + ": " + @product.rates.average("rating").to_s + " (" + @product.rates.count().to_s + ")"   %></p>
-          <%= form_for([@product,@product.rates.build]) do |f| %>
-            <p>
-              <%= f.select(:rating, options_for_select([[1,1],[2,2],[3,3],[4,4],[5,5]],3), class: "form-control")%>
-            </p>
-            <p>
-              <%= f.submit(t('rate'), class: "btn btn-primary") %>
-            </p>
+          <% if user_signed_in? %>
+            <%= form_for([@product,@product.rates.build]) do |f| %>
+              <p>
+                <%= f.select(:rating, options_for_select([[1,1],[2,2],[3,3],[4,4],[5,5]],3), class: "form-control")%>
+              </p>
+              <p>
+                <%= f.submit(t('rate'), class: "btn btn-primary") %>
+              </p>
+            <% end %>
+            <%= form_for([@product,@product.orders.build]) do |f| %>
+              <p>
+                <%= f.submit(t('to_cart'),class: 'btn btn-primary') %>
+              </p>
+            <% end %>
           <% end %>
 
         </div>

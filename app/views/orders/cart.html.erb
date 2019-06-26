@@ -1,0 +1,58 @@
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading"><%= t('cart') %></h1>
+  </div>
+</section>
+
+<% if @orders.length>0 %>
+  <div class="container mb-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col"> </th>
+              <th scope="col"><%= t('product') %></th>
+              <th scope="col" class="text-center"><%= t('quantity') %></th>
+              <th scope="col" class="text-right"><%= t('price') %></th>
+              <th> </th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @sum = 0 %>
+            <% @orders.each do |o| %>
+            <% @sum += o.quantity*o.product.price %>
+              <tr>
+                <td><td><%= image_tag(o.product.imgURL, height: '32', width: '32')%> </td> </td>
+                <td><%= o.product.manufacturer + " " + o.product.productName %></td>
+                <td><%= o.quantity %></td>
+                <td class="text-right"><%= (o.quantity * o.product.price).to_s + " " + t('huf') %></td>
+                <td><%= link_to t('delete_from_cart'), 'cart/' + o.id.to_s %></td>
+
+              </tr>
+            <% end %>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><strong><%= t('total') %></strong></td>
+              <td class="text-right"><strong><%= @sum.to_s + " " + t('huf')  %></strong></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col mb-2">
+        <div class="row">
+          <div class="col-sm-12  col-md-6">
+            <%= link_to t('cont_shop'), root_path, class:"btn btn-block btn-light" %>
+          </div>
+          <div class="col-sm-12 col-md-6 text-right">
+            <%= link_to t('check_out'), checkout_path, class: "btn btn-lg btn-block btn-success text-uppercase" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

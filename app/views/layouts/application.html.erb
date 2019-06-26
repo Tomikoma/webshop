@@ -37,8 +37,11 @@
               <%= link_to t("home"), root_path, class: "nav-link" %>
             </li>
             <% if user_signed_in? %>
-              <li>
-                <%= link_to t('cart'),  :class => "nav-link"%>
+              <li class="<%= cart_url == request.original_url ? "nav-item active" : "nav-item" %>">
+                <%= link_to t('cart'), cart_path,  :class => "nav-link"%>
+              </li>
+              <li class="<%= orders_url == request.original_url ? "nav-item active" : "nav-item" %>">
+                <%= link_to t('orders'), orders_path,  :class => "nav-link"%>
               </li>
               <%= link_to t('logout'), destroy_user_session_path, method: :delete, :class => 'nav-link'  %>
             <% else %>
@@ -70,4 +73,3 @@
     </footer>
   </body>
 </html>
-y

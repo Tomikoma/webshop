@@ -4,9 +4,14 @@ Rails.application.routes.draw do
     resources :products, only: [:show, :index] do
       resources :comments
       resources :rates
+      resources :orders
     end
-    get 'main/index'
 
+
+    get 'cart/:id' => 'orders#destroy'
+    get 'cart', to: 'orders#cart'
+    get 'checkout', to: 'orders#checkout'
+    get 'orders', to: 'orders#all_orders'
     root 'main#index'
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   end

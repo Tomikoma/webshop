@@ -59,4 +59,13 @@ en:
   rate: "Rate"
   send: "Send"
   comments: "Comments"
+  product: "Product"
+  quantity: "Quantity"
+  total: "Total"
+  cont_shop: "Continue Shopping"
+  check_out: "Check out"
+  delete_from_cart: 'Delete from cart'
+  to_cart: "To cart"
+  orders: "Orders"
+  order: "Order"
 

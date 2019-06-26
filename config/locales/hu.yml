@@ -59,6 +59,15 @@ hu:
   rate: "Értékelje"
   send: "Küldés"
   comments: "Hozzászólások"
+  product: "Termék"
+  quantity: "Mennyiség"
+  total: "Összesen"
+  cont_shop: "Vásárlás folytatása"
+  check_out: "Rendelés véglegesítése"
+  delete_from_cart: 'Törlés a kosárból'
+  to_cart: "Kosárba"
+  orders: "Rendelések"
+  order: "Rendelés"
   activerecord:
     errors:
       models:
