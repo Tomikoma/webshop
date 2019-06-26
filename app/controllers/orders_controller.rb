@@ -7,9 +7,10 @@ class OrdersController < ApplicationController
   def create
     @product = Product.find(params[:product_id])
     @user = current_user
-    @order = Order.where(product_id: @product.id, user_id: @user.id)
+    @order = Order.where(product_id: @product.id, user_id: @user.id, paid: false)
 
     if @order.empty?
+
       Order.create(:user => @user, :product => @product, :quantity => 1, :paid => false)
     else
       @order[0].update(:quantity => @order[0].quantity+1)
