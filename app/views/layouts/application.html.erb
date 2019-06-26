@@ -37,7 +37,9 @@
               <%= link_to t("home"), root_path, class: "nav-link" %>
             </li>
             <% if user_signed_in? %>
-              <%= link_to t('cart'),  :class => "nav-link"%>
+              <li>
+                <%= link_to t('cart'),  :class => "nav-link"%>
+              </li>
               <%= link_to t('logout'), destroy_user_session_path, method: :delete, :class => 'nav-link'  %>
             <% else %>
               <li class="<%= request.original_url.split('/').last == "sign_up" ? "nav-item active" : "nav-item" %>">
