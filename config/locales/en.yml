@@ -68,4 +68,7 @@ en:
   to_cart: "To cart"
   orders: "Orders"
   order: "Order"
+  to_wishlist: "Add to wishlist"
+  remove_from_wishlist: "Remove from wishlist"
+  wishlist: "Wishlist"
 

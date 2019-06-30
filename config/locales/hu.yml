@@ -68,6 +68,9 @@ hu:
   to_cart: "Kosárba"
   orders: "Rendelések"
   order: "Rendelés"
+  to_wishlist: "Hozzáadás a kívánságlistához"
+  remove_from_wishlist: "Eltávolítás a kívánságlistáról"
+  wishlist: "Kívánságlista"
   activerecord:
     errors:
       models:

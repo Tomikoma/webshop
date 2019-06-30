@@ -67,6 +67,15 @@
                 <%= f.submit(t('to_cart'),class: 'btn btn-primary') %>
               </p>
             <% end %>
+            <% if not @product_exists %>
+              <%= form_tag(controller: "wishlist", action: "add_product", method: "get", class: "nifty_form") do %>
+                <% submit_tag(t('to_wishlist'), class: "btn btn-primary") %>
+              <% end %>
+            <% else %>
+              <%= form_tag(controller: "wishlist", action: "remove_product", :from => "pr", method: "get", class: "nifty_form") do %>
+                <% submit_tag(t('remove_from_wishlist'), class: "btn btn-primary") %>
+              <% end %>
+            <% end %>
           <% end %>
 
         </div>

@@ -10,6 +10,10 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    if user_signed_in?
+      @user = current_user
+      @product_exists = User.find(@user.id).products.exists?(params[:id])
+    end
   end
 
   # GET /products/new

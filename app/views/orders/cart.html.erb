@@ -24,11 +24,11 @@
             <% @orders.each do |o| %>
             <% @sum += o.quantity*o.product.price %>
               <tr>
-                <td><td><%= image_tag(o.product.imgURL, height: '32', width: '32')%> </td> </td>
+                <td><%= image_tag(o.product.imgURL, height: '32', width: '32')%></td>
                 <td><%= o.product.manufacturer + " " + o.product.productName %></td>
                 <td><%= o.quantity %></td>
                 <td class="text-right"><%= (o.quantity * o.product.price).to_s + " " + t('huf') %></td>
-                <td><%= link_to t('delete_from_cart'), 'cart/' + o.id.to_s %></td>
+                <td class="text-right"><%= link_to t('delete_from_cart'), 'cart/' + o.id.to_s %></td>
 
               </tr>
             <% end %>
